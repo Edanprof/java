@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="emp">
+    <!-- employees테이블의 모든 내용을 EmpVO객체로 생성하여 반환하는 SELECT절 -->
+	<select id="all" resultType="mybatis.vo.EmpVO">
+		select * from employees
+	</select>
+	
+	<select id="searchName" parameterType="String" resultType="mybatis.vo.EmpVO">
+		select * from employees
+		where first_name LIKE '%'||#{n}||'%'
+	</select>
+	
+</mapper>
